@@ -14,19 +14,32 @@ HSRP (Hot Standby Router Protocol)
 LACP EtherChannel (Link Aggregation Control Protocol)
 
 IEEE 802.1Q VLAN Trunking
+
 VLAN Segmentation (VLANs 10, 20, 30, 60, 70, 99, 1)
+
 GRE (Generic Routing Encapsulation) Tunneling
+
 Router-on-a-Stick (ROAS)
-	Point-to-Point (P2P) Serial WAN Connectivity
-	VLSM (Using 10.10.0.0/16 block)
-	DHCP (Dynamic Host Configuration Protocol) Server & Pools
-	DHCP Relay Agent (ip helper-address)
-	Cisco IP Phone Voice-VLAN Architecture
-	DNS (Domain Name System)
-	DHCP Snooping
-	Dynamic ARP Inspection (DAI)
-	Switchport Port Security 
-	Access Control Lists (ACLs)
+
+Point-to-Point (P2P) Serial WAN Connectivity
+
+VLSM (Using 10.10.0.0/16 block)
+
+DHCP (Dynamic Host Configuration Protocol) Server & Pools
+
+DHCP Relay Agent (ip helper-address)
+
+Cisco IP Phone Voice-VLAN Architecture
+
+DNS (Domain Name System)
+
+DHCP Snooping
+
+Dynamic ARP Inspection (DAI)
+
+Switchport Port Security 
+
+Access Control Lists (ACLs)
 	SSH Version 2 (Secure Shell)
 	Cisco IOS Privilege Level 15 Executive Routing
 	IP address configuration
