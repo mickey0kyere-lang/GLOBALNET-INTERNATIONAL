@@ -1,0 +1,232 @@
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname DIST_SW1
+!
+!
+no profinet
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username mickey privilege 15 secret 5 $1$mERr$oqUZwTmXoTlvklf0QY3jZ1
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name globalnet.local
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree vlan 10,20 priority 24576
+spanning-tree vlan 30 priority 28672
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ description TO_DIST_SW2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Port-channel3
+ description TO_ACC_SW2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/3
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/4
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/5
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 3 mode active
+!
+interface FastEthernet0/6
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 3 mode active
+!
+interface FastEthernet0/7
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ no switchport
+ ip address 10.10.4.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 00d0.5802.4801
+ ip address 10.10.3.2 255.255.255.192
+ standby 10 ip 10.10.3.1
+ standby 10 priority 110
+ standby 10 preempt
+!
+interface Vlan20
+ mac-address 00d0.5802.4802
+ ip address 10.10.0.2 255.255.254.0
+ ip helper-address 10.10.3.10
+ standby 20 ip 10.10.0.1
+ standby 20 priority 110
+ standby 20 preempt
+!
+interface Vlan30
+ mac-address 00d0.5802.4803
+ ip address 10.10.2.2 255.255.255.0
+ ip helper-address 10.10.3.10
+ standby 30 ip 10.10.2.1
+ standby 30 priority 90
+ standby 30 preempt
+!
+router ospf 10
+ router-id 3.3.3.3
+ log-adjacency-changes
+ passive-interface Vlan10
+ passive-interface Vlan20
+ passive-interface Vlan30
+ network 10.10.4.0 0.0.0.3 area 0
+ network 10.10.3.0 0.0.0.63 area 0
+ network 10.10.0.0 0.0.1.255 area 0
+ network 10.10.2.0 0.0.0.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list standard RESTRICT_SSH_ACCESS
+ permit 10.10.3.0 0.0.0.63
+ip access-list extended PROTECT_SERVER_ROOM
+ permit udp any any
+ permit udp any host 10.10.3.11 eq domain
+ permit tcp any host 10.10.3.11 eq domain
+ deny ip 10.10.0.0 0.0.1.255 10.10.3.0 0.0.0.63
+ permit ip any any
+!
+!
+!
+!
+!
+!
+line con 0
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ access-class RESTRICT_SSH_ACCESS in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class RESTRICT_SSH_ACCESS in
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+

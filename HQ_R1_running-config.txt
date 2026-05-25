@@ -1,0 +1,130 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname HQ_R1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username mickey privilege 15 secret 5 $1$mERr$oqUZwTmXoTlvklf0QY3jZ1
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524CATG-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name globalnet.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel0
+ ip address 10.10.4.10 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/2
+ tunnel destination 100.0.0.1
+!
+!
+interface GigabitEthernet0/0
+ description TO_DIST_SW2
+ ip address 10.10.4.5 255.255.255.252
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description TO_DIST_SW1
+ ip address 10.10.4.1 255.255.255.252
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description TO_SPR2
+ ip address 150.0.0.2 255.255.255.252
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ description TO_BR_B
+ ip address 10.10.4.13 255.255.255.252
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ router-id 2.2.2.2
+ log-adjacency-changes
+ network 10.10.4.0 0.0.0.3 area 0
+ network 10.10.4.4 0.0.0.3 area 0
+ network 10.10.4.8 0.0.0.3 area 0
+ network 10.10.4.12 0.0.0.3 area 0
+ default-information originate
+!
+ip nat inside source list HQ_NAT interface GigabitEthernet0/2 overload
+ip classless
+ip route 0.0.0.0 0.0.0.0 150.0.0.1 
+!
+ip flow-export version 9
+!
+!
+ip access-list standard RESTRICT_SSH_ACCESS
+ permit 10.10.3.0 0.0.0.63
+ip access-list standard HQ_NAT
+ permit 10.10.0.0 0.0.255.255
+!
+!
+!
+!
+!
+line con 0
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ access-class RESTRICT_SSH_ACCESS in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class RESTRICT_SSH_ACCESS in
+ login local
+ transport input ssh
+!
+!
+!
+end
+

@@ -1,0 +1,320 @@
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname BR_B_SW1
+!
+!
+!
+ip ssh version 2
+ip domain-name globalnet.local
+!
+username mickey secret 5 $1$mERr$oqUZwTmXoTlvklf0QY3jZ1
+!
+ip arp inspection vlan 1
+!
+ip dhcp snooping vlan 1
+ip dhcp snooping
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 00D0.FF22.2E93
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0060.7099.A66B
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/5
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/6
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/7
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/8
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/9
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/10
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/11
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/12
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/13
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/14
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/15
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/16
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/17
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/18
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/19
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/20
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/21
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/22
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/23
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/24
+ ip dhcp snooping limit rate 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/1
+ ip arp inspection trust
+ ip dhcp snooping trust
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.10.3.98 255.255.255.240
+!
+ip default-gateway 10.10.3.97
+!
+!
+!
+!
+ip access-list standard RESTRICT_SSH_ACCESS
+line con 0
+ login local
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+
