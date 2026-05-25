@@ -1,7 +1,7 @@
 #Enterprise Network Infrastructure Design: GlobalNet International
 
 ##Network Topology
-![GlobalNet International Network Topology](TOPOLOGY-MAP_map.png)
+![GlobalNet International Network Topology](TOPOLOGY-MAP.png)
 
 ---
 
@@ -40,8 +40,3 @@ GlobalNet International** is a rapidly expanding global logistics and supply cha
 
 ---
 
-## 📂 3. Repository Contents
-* `/HQ_Core_SW1_Config.txt` - Configuration profile for Head Office Core Switch 1
-* `/HQ_Core_SW2_Config.txt` - Configuration profile for Head Office Core Switch 2
-* `/Branch_A_Router_Config.txt` - Configuration profile for the Branch A edge gateway
-* `/GlobalNet_Topology.pkt` - Complete Cisco Packet Tracer lab file
