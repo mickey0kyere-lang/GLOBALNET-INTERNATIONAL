@@ -8,9 +8,12 @@ This project details the implementation of a scalable network architecture conne
 
 
 Technology to be implemented
-	HSRP (Hot Standby Router Protocol)
-	LACP EtherChannel (Link Aggregation Control Protocol)
-	IEEE 802.1Q VLAN Trunking
+
+HSRP (Hot Standby Router Protocol)
+
+LACP EtherChannel (Link Aggregation Control Protocol)
+
+IEEE 802.1Q VLAN Trunking
 	VLAN Segmentation (VLANs 10, 20, 30, 60, 70, 99, 1)
 	GRE (Generic Routing Encapsulation) Tunneling
 	Router-on-a-Stick (ROAS)
